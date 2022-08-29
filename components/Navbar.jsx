@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import { FiAlignJustify } from 'react-icons/fi';
-import { Link } from 'gatsby';
-import logo from '../assets/images/logo.svg';
+import Link from 'next/link';
+import logo from '../public/logo.svg';
 
 const Navbar = () => {
 	const [show, setShow] = useState(false);
+
 	return (
 		<nav className='navbar'>
 			<div className='nav-center'>
 				<div className='nav-header'>
-					<Link to='/'>
+					<Link href='/'>
+						{/*  TODO: use nextJs image */}
 						<img src={logo} alt='simply recipes' />
 					</Link>
 					<button className='nav-btn' onClick={() => setShow(!show)}>
@@ -18,40 +20,40 @@ const Navbar = () => {
 				</div>
 				<div className={show ? 'nav-links show-links' : 'nav-links'}>
 					<Link
-						to='/'
+						href='/'
 						className='nav-link'
 						activeClassName='active-link'
 						onClick={() => setShow(false)}
 					>
-						home
+						<a>home</a>
 					</Link>
 					<Link
-						to='/recipes'
+						href='/recipes'
 						className='nav-link'
 						activeClassName='active-link'
 						onClick={() => setShow(false)}
 					>
-						recipes
+						<a>recipes</a>
 					</Link>
 					<Link
-						to='/tags'
+						href='/tags'
 						className='nav-link'
 						activeClassName='active-link'
 						onClick={() => setShow(false)}
 					>
-						tags
+						<a>tags</a>
 					</Link>
 
 					<Link
-						to='/about'
+						href='/about'
 						className='nav-link'
 						activeClassName='active-link'
 						onClick={() => setShow(false)}
 					>
-						about
+						<a>about</a>
 					</Link>
 					<div className='nav-link contact-link'>
-						<Link to='/contact' className='btn' onClick={() => setShow(false)}>
+						<Link href='/contact' className='btn' onClick={() => setShow(false)}>
 							contact
 						</Link>
 					</div>
